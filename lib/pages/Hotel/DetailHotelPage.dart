@@ -233,7 +233,7 @@ class DertailHotelPage extends StatelessWidget {
                                   ),
                                   ListTile(
                                     title: Text('Reglas del hotel'),
-                                    trailing: Icon(Icons.arrow_forward_ios),
+                                    trailing: Icon(Icons.ac_unit),
                                   ),
                                 ],
                               ),
