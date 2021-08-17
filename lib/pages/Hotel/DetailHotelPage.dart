@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yogotripplaner/pages/Habitaciones/ListHabitacionesPage.dart';
 
 class DertailHotelPage extends StatelessWidget {
   const DertailHotelPage({Key key}) : super(key: key);
@@ -250,12 +251,37 @@ class DertailHotelPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-          height: 100,
+          height: 70,
           decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-          child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 8,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) => ListHabitacionesPage())
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  width: 190,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                  child: Center(
+                    child: Text('Escoger habitación'),
+                  ),
+                ),
+              )
+            ],
+          )
+          
+          /*Center(
             child: ElevatedButton(
                 onPressed: () {}, child: Text('Escoger habitación')),
-          )),
+          )*/
+      ),
     );
   }
 }
