@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:yogotripplaner/controller/Principal/PrincipalController.dart';
+import 'package:yogotripplaner/pages/Atractivo/AtractivoPage.dart';
 import 'package:yogotripplaner/pages/TouristPlace/TouristPlacePage.dart';
 import 'package:get/get.dart';
 
@@ -147,7 +148,10 @@ class DescubrirPage extends StatelessWidget {
                             /*Navigator.of(context).push(MaterialPageRoute(
                                 builder: (BuildContext context) =>
                                     TouristPlacePage()));*/
-                            Get.to(TouristPlacePage());
+                            Get.to(
+                              TouristPlacePage(),
+                              arguments: _.listDestino[index]
+                            );
 
                           },
                           child: Column(
@@ -317,36 +321,45 @@ class DescubrirPage extends StatelessWidget {
 
                       return Padding(
                         padding: EdgeInsets.only(left: 20, right: 10),
-                        child: Container(
-                          //height: 10,
-                          width: 150,
-    
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      'http://digital.regionsanmartin.gob.pe/turismo-api/api/v1/multimedia/${_.listLugaresCercanos[index].urlImage}/thumbnail'),
-                                  fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  _.listLugaresCercanos[index].nombre,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                /*Text(
-                                  '12344445 viajeros aqui',
-                                  style: TextStyle(color: Colors.white),
-                                ),*/
-                                SizedBox(
-                                  height: 20,
-                                )
-                              ],
+                        child: GestureDetector(
+                          onTap:(){
+
+                            Get.to(
+                              AtractivoPage(),
+                              arguments: _.listLugaresCercanos[index]
+                            );
+                          },
+                          child: Container(
+                            //height: 10,
+                            width: 150,
+                            
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'http://digital.regionsanmartin.gob.pe/turismo-api/api/v1/multimedia/${_.listLugaresCercanos[index].urlImage}/thumbnail'),
+                                    fit: BoxFit.cover),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _.listLugaresCercanos[index].nombre,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  /*Text(
+                                    '12344445 viajeros aqui',
+                                    style: TextStyle(color: Colors.white),
+                                  ),*/
+                                  SizedBox(
+                                    height: 20,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),

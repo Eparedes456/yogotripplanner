@@ -89,9 +89,12 @@ class PrincipalController extends GetxController{
 
       listLugaresCercanos.add(
         LugaresCercanosModel(
-          idAtractivo: data[i]['idAtractivo'],
-          nombre: data[i]['nombre'],
-          urlImage: data[i]['multimedia'][0]['idMultimedia'].toString()
+          idAtractivo   : data[i]['idAtractivo'],
+          nombre        : data[i]['nombre'],
+          urlImage      : data[i]['multimedia'][0]['idMultimedia'].toString(),
+          descripcion   : data[i]['descripcion'],
+          latitud       : data[i]['latitud'], 
+          longitud      : data[i]['longitud']
         )
       );
       
