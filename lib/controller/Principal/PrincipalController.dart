@@ -43,7 +43,7 @@ class PrincipalController extends GetxController{
       var data = await Geolocator.getCurrentPosition();
 
     }
-  }else if(permission == LocationPermission.whileInUse){
+  }else if(permission == LocationPermission.whileInUse || permission == LocationPermission.always ){
 
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     await validarUsuario(position.latitude,position.longitude);
